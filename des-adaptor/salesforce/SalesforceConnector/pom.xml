@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.emob.des.adaptor</groupId>
+		<artifactId>salesforce</artifactId>
+		<version>5.1.0</version>
+	</parent>
+	<groupId>com.emob.des.adaptor.salesforce</groupId>
+	<artifactId>salesforceConnector</artifactId>
+	<packaging>bundle</packaging>
+	<name>DES Salesforce Connector</name>
+	<description>DES Salesforce Connector</description>
+	<dependencies>
+		<dependency>
+			<groupId>com.force.api</groupId>
+			<artifactId>force-wsc</artifactId>
+			<version>31.0.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Description>${project.description}</Bundle-Description>
+						<Export-Package>
+							com.emob.des.qb.*,
+						</Export-Package>
+						<Require-Bundle>force-wsc</Require-Bundle>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

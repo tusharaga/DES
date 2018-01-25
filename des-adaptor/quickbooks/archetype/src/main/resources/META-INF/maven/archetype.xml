@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><archetype>
+  <id>qbref</id>
+  <sources>
+    <source>src\main\java\com\emob\des\client\quickbooks\qbref\XClientQBRef.java</source>
+  </sources>
+  <resources>
+    <resource>src\main\resources\com.emob.des.client.quickbooks.qbref.cfg</resource>
+    <resource>src\main\resources\OSGI-INF\blueprint\blueprint.xml</resource>
+    <resource>.classpath</resource>
+    <resource>.project</resource>
+    <resource>.settings\org.eclipse.jdt.core.prefs</resource>
+    <resource>.settings\org.eclipse.m2e.core.prefs</resource>
+    <resource>.settings\org.eclipse.pde.core.prefs</resource>
+  </resources>
+</archetype>

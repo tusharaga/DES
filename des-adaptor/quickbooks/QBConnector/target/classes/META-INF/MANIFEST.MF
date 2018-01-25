@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1426571212189
+Build-Jdk: 1.6.0_45
+Built-By: Tushar
+Bundle-Description: DES QB Connector
+Bundle-ManifestVersion: 2
+Bundle-Name: DES QB Connector
+Bundle-SymbolicName: qbconnector
+Bundle-Version: 5.1.0
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.emob.des.qb.domain;version="5.1.0";uses:="com.intuit
+ .ipp.core,com.intuit.ipp.data",com.emob.des.qb.service;version="5.1.0";
+ uses:="com.emob.des.qb.domain,com.emob.des.rest.model"
+Import-Package: com.emob.des.rest.model;version="[5.1,6)",com.intuit.ipp
+ .core,com.intuit.ipp.data
+Require-Bundle: ipp-v3-java-devkit
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-2.3.0.201405100607

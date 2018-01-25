@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1426571213792
+Build-Jdk: 1.6.0_45
+Built-By: Tushar
+Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
+Bundle-Description: Quickbooks Client Specific Reference Project
+Bundle-ManifestVersion: 2
+Bundle-Name: QB Reference
+Bundle-SymbolicName: qbref
+Bundle-Version: 5.1.0
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.emob.des.client.quickbooks.qbref;version="5.1.0";use
+ s:="com.emob.des.qb.domain,com.emob.des.qb.service,com.emob.des.rest.mo
+ del,com.emob.des.rest.service",com.emob.des.client.quickbooks.qbref.cfg
+ ;version="5.1.0"
+Import-Package: org.osgi.service.blueprint;version="[1.0.0,2.0.0)",com.e
+ mob.des.rest.service;version="[5.1,6)",com.emob.des.rest.model;version=
+ "[5.1,6)",com.emob.des.qb.domain;version="[5.1,6)",com.emob.des.qb.serv
+ ice;version="[5.1,6)",com.intuit.ipp.core,com.intuit.ipp.data,com.intui
+ t.ipp.exception,com.intuit.ipp.query,com.intuit.ipp.query.expr,com.intu
+ it.ipp.security,com.intuit.ipp.services,javax.ws.rs.ext;version="[1.1,2
+ )",javax.xml.bind.annotation,org.apache.commons.httpclient;version="[3.
+ 1,4)",javax.xml.bind,org.apache.commons.httpclient.methods;version="[3.
+ 1,4)",javax.ws.rs.core;version="[1.1,2)",javax.wsdl,javax.ws.rs;version
+ ="[1.1,2)"
+Import-Service: com.emob.des.qb.service.QBConnector;multiple:=false,com.
+ emob.des.rest.service.DesRepository;multiple:=false
+Require-Bundle: des-base
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-2.3.0.201405100607

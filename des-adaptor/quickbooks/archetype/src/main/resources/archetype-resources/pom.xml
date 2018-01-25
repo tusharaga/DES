@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.emob.des.adaptor</groupId>
+		<artifactId>quickbooks</artifactId>
+		<version>5.1.0</version>
+	</parent>
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}</artifactId>
+	<packaging>bundle</packaging>
+	<name>QB Reference</name>
+	<description>Quickbooks Client Specific Reference Project</description>
+	<dependencies>
+		<dependency>
+			<groupId>com.emob.des.adaptor.quickbooks</groupId>
+			<artifactId>qbconnector</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.emob.des.adaptor.quickbooks</groupId>
+			<artifactId>qbconnectorimpl</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Description>${project.description}</Bundle-Description>
+						<Import-Package>javax.wsdl,
+							javax.xml.bind,
+							javax.xml.bind.annotation,
+							javax.ws.rs,
+							javax.ws.rs.core,
+							org.apache.commons.httpclient,
+							org.apache.commons.httpclient.methods,
+							org.osgi.service.blueprint,
+							javax.ws.rs.ext,
+							com.emob.des.rest.service.*,
+							com.emob.des.rest.model.*,
+							com.emob.des.qb.*,
+							com.intuit.*,</Import-Package>
+						<Export-Package>com.emob.des.client.quickbooks.qbref.*,</Export-Package>
+						<Require-Bundle>des-base</Require-Bundle>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

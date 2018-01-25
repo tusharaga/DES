@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.emob.des</groupId>
+        <artifactId>des</artifactId>
+        <version>5.1.0</version>
+    </parent>
+	<groupId>com.emob.des.interface</groupId>
+    <artifactId>des-interface</artifactId>
+    <packaging>pom</packaging>
+    <name>Des Interface</name>
+    <modules>
+        <module>des-base</module>
+        <module>des-repository</module>
+        <module>des-auth-repository</module>
+        <module>mysql-springjdbc-fragment</module>
+        <module>des-scheduler</module>
+    </modules>
+</project>

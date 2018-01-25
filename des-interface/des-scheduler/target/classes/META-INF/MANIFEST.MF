@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1426571201670
+Build-Jdk: 1.6.0_45
+Built-By: Tushar
+Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
+Bundle-Description: DES Scheduler
+Bundle-ManifestVersion: 2
+Bundle-Name: DES Scheduler
+Bundle-SymbolicName: des-scheduler
+Bundle-Version: 5.1.0
+Created-By: Apache Maven Bundle Plugin
+Embed-Dependency: org.quartz,org.quartz.impl
+Export-Package: com.emob.des.scheduler;version="5.1.0";uses:="com.emob.d
+ es.rest.service,org.quartz"
+Import-Package: com.emob.des.rest.service;version="[5.1,6)",com.emob.des
+ .rest.model;version="[5.1,6)",org.apache.commons.httpclient;version="[3
+ .1,4)",org.apache.commons.httpclient.methods;version="[3.1,4)",org.osgi
+ .service.blueprint;version="[1.0.0,2.0.0)",org.quartz,org.quartz.impl,j
+ avax.ws.rs.core;version="[1.1,2)",javax.ws.rs;version="[1.1,2)",javax.w
+ sdl,javax.xml.bind,javax.ws.rs.ext;version="[1.1,2)",javax.xml.bind.ann
+ otation
+Import-Service: com.emob.des.rest.service.DesRepository;multiple:=false
+Require-Bundle: des-base
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-2.3.0.201405100607

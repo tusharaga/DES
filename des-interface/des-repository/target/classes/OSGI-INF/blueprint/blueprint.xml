@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+	xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs" xmlns:cxf="http://cxf.apache.org/blueprint/core"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0
+	http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+	http://cxf.apache.org/blueprint/jaxws 
+            http://cxf.apache.org/schemas/blueprint/jaxws.xsd
+		    http://cxf.apache.org/blueprint/jaxrs 
+		    http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+		    http://cxf.apache.org/blueprint/core 
+		    http://cxf.apache.org/schemas/blueprint/core.xsd
+		    http://www.springframework.org/schema/tx 
+      		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<cm:property-placeholder persistent-id="com.emob.des.datasource.repository">
+		<cm:default-properties>
+			<cm:property name="url" value="jdbc:mysql://172.31.16.4:3306/emob_des" />
+			<cm:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+			<cm:property name="username" value="integration" />
+			<cm:property name="password" value="fdz1nt3g" />
+			<cm:property name="removeAbandoned" value="true" />
+			<cm:property name="initialSize" value="20" />
+			<cm:property name="maxActive" value="30" />
+			<cm:property name="validationQuery" value="SELECT 1" />
+			<cm:property name="testOnBorrow" value="true" />
+		</cm:default-properties>
+	</cm:property-placeholder>
+
+	<bean id="springDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="url" value="${url}" />
+		<property name="driverClassName" value="${driverClassName}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+		<property name="removeAbandoned" value="${removeAbandoned}" />
+		<property name="initialSize" value="${initialSize}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="validationQuery" value="${validationQuery}" />
+		<property name="testOnBorrow" value="${testOnBorrow}" />
+	</bean>
+
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="springDataSource" />
+	</bean>
+
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<property name="dataSource" ref="springDataSource"></property>
+	</bean> -->
+
+	<bean id="desRepository" class="com.emob.des.repository.service.impl.DesRepositoryImpl">
+		<!-- <property name="jdbcTemplate" ref="jdbcTemplate" /> -->
+		<property name="dataSource" ref="springDataSource" /> 
+		<property name="transactionManager" ref="transactionManager" />
+	</bean>
+	<service ref="desRepository" interface="com.emob.des.rest.service.DesRepository" />
+
+</blueprint>

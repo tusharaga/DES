@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Fragment-Host: org.springframework.jdbc
+Built-By: Tushar
+Build-Jdk: 1.6.0_45
+Bundle-Version: 1.0.0
+Tool: Bnd-0.0.357
+Bundle-Name: mysql-springjdbc-fragment
+Bnd-LastModified: 1426571203591
+Created-By: Apache Maven Bundle Plugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: mysql-springjdbc-fragment
+Import-Package: com.mysql.jdbc
+
